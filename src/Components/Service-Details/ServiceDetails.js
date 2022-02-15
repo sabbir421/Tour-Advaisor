@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
-import useAuth from '../../Hooks/useAuth';
+
 import axios from 'axios';
+import useAuth from '../../Hooks/useAuth';
 
 
 const ServiceDetails = () => {

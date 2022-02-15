@@ -1,33 +1,72 @@
-
-
-import {useLocation, useHistory } from 'react-router-dom';
+import { Button, Container, Grid, TextField } from '@mui/material';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import login from '../../img/login4.svg'
+import { useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
-import '../log-in/Login.css'
 
 
 const Login = () => {
-  const {signInUsingGoogle}=useAuth();
+  const {singinUser}=useAuth();
+  
+  const [loginData,setLoginData]=useState({})
+
   const location = useLocation();
-  const location_url = location.state?.from || "/";
   const history = useHistory();
 
-const GmailLoginFunction=(e)=>{
-  e.preventDefault()
-  signInUsingGoogle()
-  history.push(location_url);
+  
 
+// Email Login
+const emailLoginOnChange=e=>{
+  const field=e.target.name;
+  const value=e.target.value;
+  // console.log(field,value);
+  const newLoginData= {...loginData};
+  newLoginData[field]=value;
+  setLoginData(newLoginData)
+}
+const handleEmailLogin=e=>{
+  singinUser(loginData.email, loginData.password,location,history)
+  e.preventDefault()
+ 
+  
 }
 
 
     return (
-        <div className='login-form  w-50 mx-auto my-2'>
-            <h2 className='text-white d-flex justify-content-center'>Please Login</h2>
-            <div>
-             
-      
-            </div>
-            <button onClick={GmailLoginFunction} className="googleBtn rounded mb-2 btn-white border-0 text-dark p-2">Google Sign In</button>
-        </div>
+        <Container className='login-form   my-2'>
+          <h1>Login</h1>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <form onSubmit={handleEmailLogin}>
+                <TextField
+                sx={{width:'75%',m:'1'}}
+                 id="standard-basic"
+                  label="Your Email"
+                  type='email'
+                   variant="standard"
+                   name="email"
+                   onChange={emailLoginOnChange}
+                    />
+                <TextField
+                 sx={{width:'75%',m:'1'}}
+                 id="standard-basic"
+                  label="Password"
+                  type="password"
+                   variant="standard"
+                   name="password"
+                   onChange={emailLoginOnChange}
+                    /> 
+                 <br />
+                   <Button variant="contained" sx={{m:2}} type='submit'>Login</Button>
+                </form>
+                <NavLink to ='/registation'><Button variant="text">New User ? go to Register</Button></NavLink>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <img src={login} style={{width:'100%'}} alt="" />
+              </Grid>
+            </Grid>
+            
+        </Container>
     );
 };
 

@@ -1,96 +1,87 @@
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  onAuthStateChanged,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword ,
-} from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getAuth, createUserWithEmailAndPassword,signOut,onAuthStateChanged,signInWithEmailAndPassword } from "firebase/auth";
+import initializationFirebase from "../Components/log-in/Firebase/Firebase.init";
 
-import initAuth from "../Firebase/FirebaseInit";
+initializationFirebase()
+const auth = getAuth();
+const useFirebase = () =>{
+    const [user,setUser]=useState({})
+    const [isLoading,setIsLoading]=useState(true)
+    const [authError,setAuthError]=useState('')
 
-initAuth();
+    // ----------register----------
 
-const useFirebase = () => {
-  const [user, setUser] = useState({});
-  const [isLoading,setIsLoading]=useState(true)
-  const[error,setError]=useState('');
- 
+    const registerUser = (email,password)=>{
+      setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+        
+        .then((userCredential) => {
+          setAuthError('')
+        })
+        .catch((error) => {
+          setAuthError(error.message);
+        })
+        .finally(() => setIsLoading(false));
+      
 
-  const auth = getAuth();
+    }
 
-  const signUpUsingEmail=(email,password)=>{
-    setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-   
-      const user = userCredential.user;
-      setUser(user)
-     
-    
-    }).finally(()=>setIsLoading(false));
-  }
+    // ------------sing in--------------
 
-const signInUsingEmail=(email,password)=>{
-  setIsLoading(true);
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-   
-    const user = userCredential.user;
-    setUser(user)
-    setError('')
-   
-  
-  }).catch((error) => {
-    
-    setError(error.message);
-  })
-  .finally(()=>setIsLoading(false));
-}
+    const singinUser = (email,password,location,history)=>{
 
-  const signInUsingGoogle = () => {
-    setIsLoading(true);
-    const googleProvider = new GoogleAuthProvider();
+      setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const destination = location?.state?.from || '/';
+          history.replace(destination);
+          setAuthError(' ');
+        })
+        .catch((error) => {
+          setAuthError(error.message);
+        })
+        .finally(()=>setIsLoading(false));
 
-    signInWithPopup(auth, googleProvider).then((result) => {
+    }
+
+
+
+    // ---------logout--------------
+
+    const logOut = () =>{
+        signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          })
+          .finally(()=>setIsLoading(false));
+          
+    }
+
+
+    // *------------state change ovserver--------------*
+
+    useEffect(()=>{
+       const unsubscribe= onAuthStateChanged(auth, (user) => {
+            if (user) {
+             setUser(user)
+            } else {
+              setUser({})
+            }
+            setIsLoading(false);
+          });
+          return ()=>unsubscribe;
+    },[])
+
+    return{
+        user,
+        isLoading,
+        registerUser,
+        authError,
+        singinUser,
+        logOut,
        
-      setUser(result.user);
-     
-    }).finally(()=>setIsLoading(false));
-  };
-
-  
-
-  // observe user state change
-  useEffect(() => {
-    const unsubscribed = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser({});
-      }
-      setIsLoading(false)
-    });
-    return () => unsubscribed;
-  }, []);
-
-  const logOut = () => {
-    setIsLoading(true)
-    signOut(auth).then(() => {})
-    .then(()=>setIsLoading(false));
-  };
-
-  return {
-    user,
-    signInUsingGoogle,
-    logOut,
-    signUpUsingEmail,
-    signInUsingEmail,
-    isLoading,
-    error
-  };
-};
-
+        
+    }
+}
 export default useFirebase;
