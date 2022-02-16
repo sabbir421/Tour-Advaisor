@@ -3,6 +3,9 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
+
+
+
 const confirm = Modal.confirm;
 const SingleOrder = ({booking,bookingLength}) => {
 
@@ -42,6 +45,7 @@ const SingleOrder = ({booking,bookingLength}) => {
                    
                    <Card.Body>
                        <Card.Title>Tour Place{booking.placeName} </Card.Title>
+                      
                        <Card.Text>
                        <p>Tourist Name: {booking.name}</p>
                        <p>Tour Amount:{booking.amount}</p>
@@ -54,6 +58,8 @@ const SingleOrder = ({booking,bookingLength}) => {
                        {/* <Button variant="primary" onClick={()=>showDeleteConfirm(booking._id)}>Remove Booking</Button> */}
                    </Card.Body>
                    </Card>
+                   
+                   
         </div>
     );
 };

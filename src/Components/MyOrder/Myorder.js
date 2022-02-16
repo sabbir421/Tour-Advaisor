@@ -2,11 +2,13 @@ import { Alert, Stack } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
 
+
 import SingleOrder from './SingleOrder';
 
 const Myorder = () => {
     const [MyBooking,setMyBooking]=useState([])
-    console.log(MyBooking.length);
+    
+    
     const {user}=useAuth()
     useEffect(()=>{
         fetch('https://tour-guide-serve.herokuapp.com/bookingorder')
@@ -19,6 +21,7 @@ const Myorder = () => {
             //  console.log(myOrder);
         })
     },[]);
+    
     return (
         <div className='container'>
             <h1 className='text-center'>My Booking</h1>
@@ -32,6 +35,7 @@ const Myorder = () => {
           {
                MyBooking.map(booking=><SingleOrder  booking={booking} key={booking._id}></SingleOrder>)
             }
+            
           </div>
         </div>
     );

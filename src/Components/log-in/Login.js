@@ -6,7 +6,7 @@ import useAuth from '../../Hooks/useAuth';
 
 
 const Login = () => {
-  const {singinUser}=useAuth();
+  const {singinUser,singinWithGoogle}=useAuth();
   
   const [loginData,setLoginData]=useState({})
 
@@ -29,6 +29,12 @@ const handleEmailLogin=e=>{
   e.preventDefault()
  
   
+}
+
+// google singin
+
+const googleSingin=()=>{
+  singinWithGoogle(location,history)
 }
 
 
@@ -59,6 +65,9 @@ const handleEmailLogin=e=>{
                  <br />
                    <Button variant="contained" sx={{m:2}} type='submit'>Login</Button>
                 </form>
+<p>----------------------------------------------</p>
+                <Button onClick={googleSingin} variant="contained" sx={{m:2}} type='submit'>Google Singin</Button> <br />
+
                 <NavLink to ='/registation'><Button variant="text">New User ? go to Register</Button></NavLink>
               </Grid>
               <Grid item xs={12} md={6}>

@@ -16,6 +16,8 @@ import Hotels from './Components/Hotel/Hotels/Hotels';
 import Registation from './Components/log-in/Registation/Registation';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import PrivateRoute from './Components/log-in/PrivateRoute/PrivateRoute';
+import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+
 function App() {
   return (
     <div className="">
@@ -33,12 +35,19 @@ function App() {
           <PrivateRoute path='/details/:id'>
             <ServiceDetails></ServiceDetails>
           </PrivateRoute>
+          <PrivateRoute path='/details/:id'>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoute>
           <PrivateRoute path='/addService'>
             <AddService></AddService>
+          </PrivateRoute>
+          <PrivateRoute path='/dashboard'>
+            <Dashboard></Dashboard>
           </PrivateRoute>
           <Route path='/hotel'>
             <Hotels></Hotels>
           </Route>
+          
           <Route path='/myOrder'>
             <Myorder></Myorder>
           </Route>

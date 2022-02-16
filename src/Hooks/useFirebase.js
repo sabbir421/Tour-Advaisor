@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword,signOut,onAuthStateChanged,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signOut,onAuthStateChanged,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import initializationFirebase from "../Components/log-in/Firebase/Firebase.init";
 
 initializationFirebase()
+
+const provider = new GoogleAuthProvider();
 const auth = getAuth();
 const useFirebase = () =>{
     const [user,setUser]=useState({})
@@ -44,6 +46,32 @@ const useFirebase = () =>{
 
     }
 
+    // Google SingIn
+
+   const singinWithGoogle=(location,history)=>{
+
+    signInWithPopup(auth, provider)
+  .then((result) => {
+   
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+
+
+    }
+
 
 
     // ---------logout--------------
@@ -80,6 +108,7 @@ const useFirebase = () =>{
         authError,
         singinUser,
         logOut,
+        singinWithGoogle,
        
         
     }
