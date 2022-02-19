@@ -33,9 +33,10 @@ const HotelsBookings = () => {
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell align="right">Hotel Name</TableCell>
-            <TableCell align="right">Date(To)</TableCell>
-            <TableCell align="right">Date(To)</TableCell>
+            <TableCell align="right">Check in</TableCell>
+            <TableCell align="right">Check out</TableCell>
             <TableCell align="right">Type</TableCell>
+            <TableCell align="right">Price</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,9 +50,10 @@ const HotelsBookings = () => {
 }
               </TableCell>
               <TableCell align="right">{row.hotelName}</TableCell>
-              <TableCell align="right">12-10-22</TableCell>
-              <TableCell align="right">14-10-22</TableCell>
+              <TableCell align="right">{row.checkin}</TableCell>
+              <TableCell align="right">{row.checkout}</TableCell>
               <TableCell align="right">Double</TableCell>
+              <TableCell align="right">{row.price} / night</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -6,7 +6,7 @@ import Hotel from '../Hotel/Hotel';
 const Hotels = () => {
     const [hotels,setHotel]=useState([])
     useEffect(()=>{
-        fetch('https://raw.githubusercontent.com/sabbir421/hotel.json/main/generated.json')
+        fetch("http://localhost:4000/addHotels")
         .then(res=>res.json())
         .then(data=>{setHotel(data)})
     },[]) 

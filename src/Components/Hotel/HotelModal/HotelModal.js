@@ -22,13 +22,14 @@ const style = {
 
 
 const HotelModal = ({openModal,handleCloseModal,hotel}) => {
-    const {name}=hotel;
+    const {name,price}=hotel;
     const [hotelBooking,setHotelBooking]=useState({})
     const handleBookingSubmit=e=>{
 
         const roomBooking = {
             ...hotelBooking,
            hotelName: name,
+           price: price
             
         }
         fetch('http://localhost:4000/hotelBooking', {
@@ -77,6 +78,9 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
             <Typography id="transition-modal-title" variant="h6" component="h2">
               {name}
             </Typography>
+            <Typography id="transition-modal-title" variant="h6" component="h2">
+             {price } per night
+            </Typography>
             <form onSubmit={handleBookingSubmit}>
             
             
@@ -84,7 +88,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
              sx={{m:2}}
           label="name"
           id="outlined-size-small"
-          defaultValue="Your Name"
+          defaultValue=""
           name="customrName"
           onBlur={handleHotelBooking}
           size="small"
@@ -93,7 +97,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
              sx={{m:2}}
           label="Email"
           id="outlined-size-small"
-          defaultValue="Your Email"
+          defaultValue=""
           onBlur={handleHotelBooking}
           name="email"
           size="small"
@@ -102,8 +106,26 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
              sx={{m:2}}
           label="Phone Number"
           id="outlined-size-small"
-          defaultValue="Your Phone Number"
+          defaultValue=""
           name="phoneNumber"
+          onBlur={handleHotelBooking}
+          size="small"
+        />
+            <TextField
+             sx={{m:2}}
+          label="Check In"
+          id="outlined-size-small"
+          defaultValue=""
+          name="checkin"
+          onBlur={handleHotelBooking}
+          size="small"
+        />
+            <TextField
+             sx={{m:2}}
+          label="check Out"
+          id="outlined-size-small"
+          defaultValue=""
+          name="checkout"
           onBlur={handleHotelBooking}
           size="small"
         />

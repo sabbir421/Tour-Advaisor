@@ -22,16 +22,9 @@ const Header = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link className='text-warning' as={HashLink} to="/home#home">Home</Nav.Link>
-                        <Nav.Link className='text-warning' as={HashLink} to="/home#services">Services</Nav.Link>
+                        <Nav.Link className='text-warning' as={HashLink} to="/home#services">Packege</Nav.Link>
                         <Nav.Link className='text-warning' as={HashLink} to="/hotel">Hotel</Nav.Link>
-                        
-                            <Nav.Link className='text-warning' as={HashLink} to="/addService">Add Service</Nav.Link>
-                            <Nav.Link className='text-warning' as={HashLink} to="/myOrder">My order</Nav.Link>
-                              <Nav.Link className='text-warning' as={HashLink} to="/allOrder">Manage All Order</Nav.Link>
-
-                        
-                      
-
+                 
                        {
                            user?.email?  <Box>
                                 <NavLink to='/dashboard'> <Button style={{color:'white',textDecoration:'none'}}>Dashboard</Button></NavLink>

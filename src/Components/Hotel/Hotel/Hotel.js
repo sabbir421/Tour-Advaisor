@@ -10,7 +10,7 @@ import HotelModal from '../HotelModal/HotelModal';
 
 const Hotel = ({hotel}) => {
     
-    const{name,img,price,discription,quantity}=hotel;
+    const{hotelName,img,price,hotelDiscription,roomType}=hotel;
 
     const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
@@ -24,9 +24,9 @@ const Hotel = ({hotel}) => {
          <img src={img} alt="" className='img-fluid m-2' />
         </Grid>
         <Grid item xs={12} sm={5} md={5} className='my-auto' >
-        <h1 className='d-flex justify-content-center'>{name}</h1>
-        <h6 className='d-flex justify-content-center'>{discription}</h6>
-        <h4 className='d-flex justify-content-center'>{quantity}</h4>
+        <h1 className='d-flex justify-content-center'>{hotelName}</h1>
+        <h6 className='d-flex justify-content-center'>{hotelDiscription}</h6>
+        <h4 className='d-flex justify-content-center'>{roomType}</h4>
         <h3 className='d-flex justify-content-center'>{price}</h3>
         <Button className='btn btn-primary rounded ' onClick={handleOpenModal} style={{marginLeft:'40%'}}>Book Now</Button>
         </Grid>

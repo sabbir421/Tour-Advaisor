@@ -1,5 +1,5 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import login from '../../../img/login4.svg'
 import { useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
@@ -9,7 +9,7 @@ import useAuth from '../../../Hooks/useAuth';
 
 const Registation = () => {
   const { registerUser,isLoading,user,authError}=useAuth();
-    
+  const history = useHistory();
     const [loginData,setLoginData]=useState({})
 
     const emailLoginOnChange=e=>{
@@ -21,13 +21,12 @@ const Registation = () => {
         setLoginData(newLoginData)
       }
       const handleEmailLogin=e=>{
-        e.preventDefault()
-        if(loginData.password !== loginData.password2){
-            alert('Password did not match');
-            return
-          }
-          registerUser(loginData.email,loginData.password)
-       
+        if (loginData.password !== loginData.password2) {
+          alert('Your password did not match');
+          return
+      }
+      registerUser(loginData.email, loginData.password, loginData.name, history);
+      e.preventDefault();
         
       
       }
@@ -37,6 +36,13 @@ const Registation = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                {! isLoading && <form onSubmit={handleEmailLogin}>
+               <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="Your Name"
+                            name="name"
+                            onBlur={emailLoginOnChange}
+                            variant="standard" />
                 <TextField
                 sx={{width:'75%',m:'1'}}
                  id="standard-basic"
