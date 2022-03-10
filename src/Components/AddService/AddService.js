@@ -18,13 +18,13 @@ const AddService = () => {
   }
     return (
         <div>
-            <h1 className='d-flex justify-content-center'>Add service</h1>
-            <form className='d-flex ms-5 my-5' onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
-                <input {...register("description")} placeholder="Description" />
-                <input type="number" {...register("price")} placeholder="price" />
-                <input {...register("img")} placeholder="image url" />
-                <input type="submit" />
+            <h1 className='d-flex justify-content-center'>Add Packege</h1>
+            <form className=' my-5' style={{marginLeft:'40%'}} onSubmit={handleSubmit(onSubmit)}>
+                <input className='py-2 my-2 px-4' {...register("name", { required: true, maxLength: 20 })} placeholder="Your Name" /> <br />
+                <input className='py-2 my-2 px-4' {...register("description")} placeholder="Description" /> <br />
+                <input className='py-2 my-2 px-4' type="number" {...register("price")} placeholder="price" /> <br />
+                <input className='py-2 my-2 px-4' {...register("img")} placeholder="image url" /> <br />
+                <input className='py-2 my-2 px-4' type="submit" />
             </form>
         </div>
     );

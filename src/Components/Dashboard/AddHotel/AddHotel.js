@@ -47,15 +47,24 @@ const AddHotel = () => {
           multiline
         /> <br />
             <TextField
-             sx={{m:2}}
+            sx={{m:2}}
           id="outlined-textarea"
-          name="hotelDiscription"
+          name="place"
           onBlur={handleOnBulr}
-          label="Hotel Discription"
-          placeholder="Placeholder"
+          label="hotel Place"
+          placeholder="Hotel Place"
           multiline
         /> <br />
             <TextField
+            sx={{m:2}}
+          id="outlined-textarea"
+          name="adminEmail"
+          onBlur={handleOnBulr}
+          label="AdminEmail"
+          placeholder="AdminEmail"
+          multiline
+        /> <br />
+        <TextField
              sx={{m:2}}
           id="outlined-textarea"
           name="roomType"
@@ -67,12 +76,13 @@ const AddHotel = () => {
             <TextField
              sx={{m:2}}
           id="outlined-textarea"
-          name="price"
+          name="hotelDiscription"
           onBlur={handleOnBulr}
-          label="price"
+          label="Hotel Discription"
           placeholder="Placeholder"
           multiline
         /> <br />
+            
             <TextField
              sx={{m:2}}
           id="outlined-textarea"

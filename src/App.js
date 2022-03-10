@@ -17,6 +17,9 @@ import Registation from './Components/log-in/Registation/Registation';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import PrivateRoute from './Components/log-in/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+import AllHotels from './Components/AllHotels/AllHotels';
+import AllRooms from './Components/AllRooms/AllRooms';
+
 
 function App() {
   return (
@@ -47,7 +50,13 @@ function App() {
           <Route path='/hotel'>
             <Hotels></Hotels>
           </Route>
-          
+          <Route path='/allhotel'>
+            <AllHotels></AllHotels>
+          </Route>
+          <Route path='/room'>
+            <AllRooms></AllRooms>
+          </Route>
+         
           <Route path='/myOrder'>
             <Myorder></Myorder>
           </Route>

@@ -17,7 +17,7 @@ const AllOrder = () => {
     },[]);
     return (
         <div className='container'>
-            <h1 className='text-center'>All Booking</h1>
+            <h1 className='text-primary text-center text-uppercase fw-bolder'>Manage All Packege</h1>
           <div className="row">
           {
                allOrder.map(booking=><SingleOrder  booking={booking} key={booking._id}></SingleOrder>)

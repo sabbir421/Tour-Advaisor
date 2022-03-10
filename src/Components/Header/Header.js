@@ -11,6 +11,7 @@ import useAuth from '../../Hooks/useAuth';
 
 const Header = () => {
     const {user,logOut}=useAuth();
+   
   
   
   
@@ -18,12 +19,13 @@ const Header = () => {
         <div>
          <Navbar className='mb-2' bg="dark" variant="dark" sticky="top" collapseOnSelect expand="lg" >
                 <Container>
-                    <Navbar.Brand href="#home">Tour <span className='text-warning'>Guide</span></Navbar.Brand>
+                    <Navbar.Brand href="#home">Tour <span className='text-warning'>Advisor</span></Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link className='text-warning' as={HashLink} to="/home#home">Home</Nav.Link>
                         <Nav.Link className='text-warning' as={HashLink} to="/home#services">Packege</Nav.Link>
                         <Nav.Link className='text-warning' as={HashLink} to="/hotel">Hotel</Nav.Link>
+                        <Nav.Link className='text-warning' as={HashLink} to="/allhotel">All Hotel</Nav.Link>
                  
                        {
                            user?.email?  <Box>

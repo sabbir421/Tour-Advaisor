@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword,signOut,onAuthStateChanged,updateProfile,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import initializationFirebase from "../Components/log-in/Firebase/Firebase.init";
+import AllHotel from "../Components/AllHotel/AllHotel";
+
 
 initializationFirebase()
 
@@ -11,25 +13,9 @@ const useFirebase = () =>{
     const [isLoading,setIsLoading]=useState(true)
     const [authError,setAuthError]=useState('')
     const [admin, setAdmin] = useState(false);
+    const [superAdmin,setSuperAdmin]=useState(false);
 
-    // ----------register----------
-
-    // const registerUser = (email,password, name)=>{
-    //   setIsLoading(true);
-    //     createUserWithEmailAndPassword(auth, email, password)
-        
-    //     .then((userCredential) => {
-    //       setAuthError('')
-    //       const newUser = { email, displayName: name };
-    //             setUser(newUser);
-    //     })
-    //     .catch((error) => {
-    //       setAuthError(error.message);
-    //     })
-    //     .finally(() => setIsLoading(false));
-      
-
-    // }
+    
 
 
     const registerUser = (email, password, name, history) => {
@@ -79,24 +65,7 @@ const useFirebase = () =>{
 
    const singinWithGoogle=(location,history)=>{
 
-  //   signInWithPopup(auth, provider)
-  // .then((result) => {
-   
-  //   const credential = GoogleAuthProvider.credentialFromResult(result);
-  //   const token = credential.accessToken;
-  //   // The signed-in user info.
-  //   const user = result.user;
-  //   // ...
-  // }).catch((error) => {
-  //   // Handle Errors here.
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  //   // The email of the user's account used.
-  //   const email = error.email;
-  //   // The AuthCredential type that was used.
-  //   const credential = GoogleAuthProvider.credentialFromError(error);
-  //   // ...
-  // });
+  
 
 
   setIsLoading(true);
@@ -164,9 +133,21 @@ const useFirebase = () =>{
           .then(res => res.json())
           .then(data => setAdmin(data.admin))
   }, [user.email])
+  //super Admin
+    useEffect(() => {
+      fetch(`http://localhost:4000/users/${user.email}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data.superAdmin);
+            setSuperAdmin(data.superAdmin)})
+          
+  }, [user.email])
+ 
+
 
     return{
         user,
+      
         isLoading,
         registerUser,
         authError,
@@ -174,8 +155,10 @@ const useFirebase = () =>{
         logOut,
         singinWithGoogle,
         admin,
+        superAdmin,
        
         
     }
+   
 }
 export default useFirebase;

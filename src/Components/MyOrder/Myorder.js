@@ -24,7 +24,7 @@ const Myorder = () => {
     
     return (
         <div className='container'>
-            <h1 className='text-center'>My Booking</h1>
+            <h1 className='text-primary text-center text-uppercase fw-bolder'>My Booking</h1>
           <div className="row">
               {MyBooking.length ?<></>  :<Stack sx={{ width: '100%' }} spacing={2}>
       <Alert severity="error">There is no Booking Order</Alert>

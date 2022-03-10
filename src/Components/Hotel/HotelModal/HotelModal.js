@@ -15,20 +15,25 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+ 
   boxShadow: 24,
   p: 4,
 };
 
 
 const HotelModal = ({openModal,handleCloseModal,hotel}) => {
-    const {name,price}=hotel;
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
+    const {hotelName,price}=hotel;
     const [hotelBooking,setHotelBooking]=useState({})
     const handleBookingSubmit=e=>{
 
         const roomBooking = {
             ...hotelBooking,
-           hotelName: name,
+           hotelName:hotelName,
            price: price
             
         }
@@ -43,6 +48,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
         .then(res => res.json())
             .then(data => {
                console.log(data);
+               handleOpen()
             });
 
 
@@ -62,6 +68,20 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
 
     }
     return (
+      <div>
+         <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Your Hotel Booking Successfully done
+          </Typography>
+          
+        </Box>
+      </Modal>
         <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -76,7 +96,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
         <Fade in={openModal}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              {name}
+              {hotelName}
             </Typography>
             <Typography id="transition-modal-title" variant="h6" component="h2">
              {price } per night
@@ -92,6 +112,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
           name="customrName"
           onBlur={handleHotelBooking}
           size="small"
+          required
         />
             <TextField
              sx={{m:2}}
@@ -101,6 +122,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
           onBlur={handleHotelBooking}
           name="email"
           size="small"
+          required
         />
             <TextField
              sx={{m:2}}
@@ -110,6 +132,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
           name="phoneNumber"
           onBlur={handleHotelBooking}
           size="small"
+          required
         />
             <TextField
              sx={{m:2}}
@@ -119,6 +142,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
           name="checkin"
           onBlur={handleHotelBooking}
           size="small"
+          required
         />
             <TextField
              sx={{m:2}}
@@ -128,6 +152,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
           name="checkout"
           onBlur={handleHotelBooking}
           size="small"
+          required
         />
             
         <br />
@@ -136,6 +161,7 @@ const HotelModal = ({openModal,handleCloseModal,hotel}) => {
           </Box>
         </Fade>
       </Modal>
+      </div>
     );
 };
 

@@ -26,7 +26,7 @@ const HotelsBookings = () => {
     }, [])
     return (
         <div>
-            <h1>Hotel Bookings{bookedHotels.length}</h1>
+            <h1 className='text-primary text-center text-uppercase fw-bolder'>My Hotel</h1>
             <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="Hotel Booking List">
         <TableHead>
@@ -37,6 +37,7 @@ const HotelsBookings = () => {
             <TableCell align="right">Check out</TableCell>
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Price</TableCell>
+            <TableCell align="right">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,6 +55,7 @@ const HotelsBookings = () => {
               <TableCell align="right">{row.checkout}</TableCell>
               <TableCell align="right">Double</TableCell>
               <TableCell align="right">{row.price} / night</TableCell>
+              <TableCell align="right">Null</TableCell>
             </TableRow>
           ))}
         </TableBody>

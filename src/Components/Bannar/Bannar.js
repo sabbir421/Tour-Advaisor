@@ -16,8 +16,8 @@ const Bannar = () => {
       height='450px'
     />
     <Carousel.Caption>
-      <h3>Tour agency</h3>
-      <p>Tour guide is a tour egency in Bangladesh</p>
+      <h3 className='text-white fw-bolder text-uppercase ms-4 '>Discover Bangladesh</h3>
+      
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -29,8 +29,8 @@ const Bannar = () => {
     />
 
     <Carousel.Caption>
-      <h3>Tour agency</h3>
-      <p>Tour guide is a tour egency in Bangladesh</p>
+    <h3 className='text-white fw-bolder text-uppercase ms-4 '>Discover Bangladesh</h3>
+      
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -42,8 +42,8 @@ const Bannar = () => {
     />
 
     <Carousel.Caption>
-      <h3>Tour agency</h3>
-      <p>Tour guide is a tour egency in Bangladesh</p>
+    <h3 className='text-white fw-bolder text-uppercase ms-4 '>Discover Bangladesh</h3>
+      
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

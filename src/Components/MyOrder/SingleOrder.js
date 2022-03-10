@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
-
+import mainCss from '../MyOrder/MyOrder.css'
 
 
 const confirm = Modal.confirm;
@@ -39,12 +39,12 @@ const SingleOrder = ({booking,bookingLength}) => {
           })  
         }
     return (
-        <div className='col-md-4 p-2 shadow-2'>
+        <div className='col-md-4 p-2 shadow-2 db' style={mainCss}>
           
             <Card style={{ width: '18rem' }}>
                    
                    <Card.Body>
-                       <Card.Title>Tour Place{booking.placeName} </Card.Title>
+                       <Card.Title>Tour Place {booking.placeName} </Card.Title>
                       
                        <Card.Text>
                        <p>Tourist Name: {booking.name}</p>
