@@ -19,6 +19,8 @@ import PrivateRoute from './Components/log-in/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import AllHotels from './Components/AllHotels/AllHotels';
 import AllRooms from './Components/AllRooms/AllRooms';
+import AddRoom from './Components/Dashboard/AddRoom/AddRoom';
+import ConfirmRoom from './Components/AllRoom/ConfirmRoom/ConfirmRoom';
 
 
 function App() {
@@ -53,8 +55,17 @@ function App() {
           <Route path='/allhotel'>
             <AllHotels></AllHotels>
           </Route>
-          <Route path='/room'>
+          <Route path='/addRoom'>
+           <AddRoom></AddRoom>
+          </Route>
+          <Route path='/room/:hotelAdminEmail'>
             <AllRooms></AllRooms>
+          </Route>
+          <Route path='/confirm'>
+            <ConfirmRoom></ConfirmRoom>
+          </Route>
+          <Route path='/roomAdd'>
+           <AddRoom></AddRoom>
           </Route>
          
           <Route path='/myOrder'>

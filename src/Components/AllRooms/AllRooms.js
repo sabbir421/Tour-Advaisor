@@ -1,121 +1,36 @@
 import { Button, Container, Grid } from '@mui/material';
 import React from 'react';
-import { NavLink } from 'react-bootstrap';
-import AllRoom from '../AllRoom/AllRoom';
-const rooms=[
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o=',
-        email:'sabbir1@gmail.com'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
+import AllRoom from '../AllRoom/AllRoom/AllRoom';
 
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-    {
-        type:'single AC',
-        dis:'single room with inside of sea Beatch',
-        price:'5000',
-        img:'https://q-xx.bstatic.com/xdata/images/hotel/max500/175690827.jpg?k=c74bbcdf4461ef5536b482fa9166f5b466a94dd0fc5bc89698d1962103de9921&o='
-
-    },
-     
-]
 
 
 const AllRooms = () => {
+    const { hotelAdminEmail } = useParams();
+    const [rooms,setRooms]=useState([])
+    useEffect(()=>{
+        fetch('http://localhost:4000/room')
+        .then(res=>res.json())
+        .then(data=>{
+            setRooms(data);
+        })
+    },[])
     return (
        
             <Container>
-                <NavLink to='/addroom'><Button variant='contained' sx={{ width: '100%',}} >Add New Room</Button></NavLink>
+                <NavLink to='/roomAdd' ><Button variant='contained' sx={{ width: '100%',}} >Add New Room</Button></NavLink>
                
             <Grid container spacing={{ xs:2, md:2, }} columns={{ xs: 12, sm: 12, md: 11 }}>
-            {rooms.map(room=><AllRoom
-            room={room}
-            ></AllRoom>)}
+            {
+                rooms.map(room=><AllRoom
+                room={room}
+                hotelAdminEmail={hotelAdminEmail}
+                ></AllRoom>)
+            }
         </Grid>
         </Container>
         

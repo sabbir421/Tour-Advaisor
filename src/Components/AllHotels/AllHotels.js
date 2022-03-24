@@ -56,7 +56,7 @@ import AllHotel from '../AllHotel/AllHotel';
 const AllHotels = () => {
     const [hotels,setHotel]=useState([])
     useEffect(()=>{
-        fetch("http://localhost:4000/addHotels")
+        fetch("http://localhost:4000/addHotel")
         .then(res=>res.json())
         .then(data=>{setHotel(data)})
     },[]) 

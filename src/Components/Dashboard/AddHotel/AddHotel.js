@@ -1,102 +1,71 @@
-import { Button, TextField } from '@mui/material';
+import { Button, Input, TextField } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 
 const AddHotel = () => {
-    const [addHotel,setAddHotel]=useState({})
+  const[hotelName,setHotelName]=useState('')
+  const[dis,setDis]=useState('')
+  const[adminEmail,setAdminEmail]=useState('')
+  const [image,setImage]=useState(null);
 
-    const handleAddHotel=e=>{
-       
-        fetch('http://localhost:4000/addHotels', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(addHotel)
-        })
+  const handleSubmit =e=>{
+      e.preventDefault()
+      if(!image){
+        return
+      }
+      const formData = new FormData();
+      formData.append('hotelName',hotelName)
+      formData.append('adminEmail',adminEmail)
+      formData.append('dis',dis)
+      formData.append('image',image)
 
-        .then(res => res.json())
-            .then(data => {
-               console.log(data);
-            });
-
-
-
-        e.preventDefault()
-    }
-    const handleOnBulr=e=>{
-        const field = e.target.name;
-        const value = e.target.value;
-        const newInfo = { ...addHotel };
-        console.log(field,value);
-        newInfo[field] = value;
-       
-        setAddHotel(newInfo);
-    }
-    return (
-        <div>
-            <h1>Add Hotel</h1>
-            <form onSubmit={handleAddHotel}>
-            <TextField
-            sx={{m:2}}
-          id="outlined-textarea"
-          name="hotelName"
-          onBlur={handleOnBulr}
-          label="Hotel Name"
-          placeholder="Placeholder"
-          multiline
-        /> <br />
-            <TextField
-            sx={{m:2}}
-          id="outlined-textarea"
-          name="place"
-          onBlur={handleOnBulr}
-          label="hotel Place"
-          placeholder="Hotel Place"
-          multiline
-        /> <br />
-            <TextField
-            sx={{m:2}}
-          id="outlined-textarea"
-          name="adminEmail"
-          onBlur={handleOnBulr}
-          label="AdminEmail"
-          placeholder="AdminEmail"
-          multiline
-        /> <br />
-        <TextField
-             sx={{m:2}}
-          id="outlined-textarea"
-          name="roomType"
-          onBlur={handleOnBulr}
-          label="Room Type"
-          placeholder="Placeholder"
-          multiline
-        /> <br />
-            <TextField
-             sx={{m:2}}
-          id="outlined-textarea"
-          name="hotelDiscription"
-          onBlur={handleOnBulr}
-          label="Hotel Discription"
-          placeholder="Placeholder"
-          multiline
-        /> <br />
-            
-            <TextField
-             sx={{m:2}}
-          id="outlined-textarea"
-          name="img"
-          onBlur={handleOnBulr}
-          label="img url"
-          placeholder="Placeholder"
-          multiline
-        /> <br />
-        <Button type='submit' variant='contained' sx={{m:2}}>Submit</Button>
-            
-            </form>
-        </div>
-    );
+      fetch('http://localhost:4000/addHotel', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(result => {
+  if(result.insertedId){
+    console.log('data add successfully');
+  }
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+  }
+  return (
+    <div>
+      <h1>Add Your Hotel</h1>
+      <form onSubmit={handleSubmit}>
+      <TextField 
+      label="Hotel Name" 
+      onChange={e=>setHotelName(e.target.value)}
+      type="text"
+      variant="standard" />
+       <br />
+      <TextField 
+      label="Hotel Discription" 
+      onChange={e=>setDis(e.target.value)}
+      type="text"
+      variant="standard" />
+       <br />
+      <TextField 
+      label="AdminEmail"
+      onChange={e=>setAdminEmail(e.target.value)} 
+      type="email"
+      variant="standard" />
+      <br />
+      <Input accept="image/*" 
+      type="file"
+      onChange={e=> setImage(e.target.files[0])}
+      />
+      <br />
+      <Button variant="contained" type='submit'>
+    Upload
+  </Button>
+      </form>
+    </div>
+  );
 };
 
 export default AddHotel;

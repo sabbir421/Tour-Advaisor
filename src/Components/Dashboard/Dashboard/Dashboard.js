@@ -25,6 +25,7 @@ import AddHotel from '../AddHotel/AddHotel';
 import SuperAdmin from '../SuperAdmin/SuperAdmin';
 import ManageAllHotels from '../ManageAllHotels/ManageAllHotels';
 import mainCss from '../Dashboard/dashboard.css'
+import AddRoom from '../AddRoom/AddRoom';
 
 
 const style = {
@@ -73,6 +74,9 @@ const Dashboard = () => {
            
           { admin  &&<Box>
           <ListItem button>
+          <Link to={`${url}/roomAdd`} className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Add New Room" /></Link>
+          </ListItem>
+          <ListItem button>
           <Link to={`${url}/makeAdmin`} className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Make Admin" /></Link>
           </ListItem>
           <ListItem button>
@@ -114,6 +118,9 @@ const Dashboard = () => {
         </Route>
         <Route path={`${path}/allOrder`}>
          <AllOrder></AllOrder>
+        </Route>
+        <Route path={`${path}/roomAdd`}>
+         <AddRoom></AddRoom>
         </Route>
         <Route path={`${path}/allHotel`}>
          <ManageAllHotels></ManageAllHotels>
