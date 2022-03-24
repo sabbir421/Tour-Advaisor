@@ -60,7 +60,7 @@ function App() {
           <Route path='/addRoom'>
            <AddRoom></AddRoom>
           </Route>
-          <Route path='/room/:hotelAdminEmail'>
+          <Route path='/room/:hotelAdminEmail/:hotelName'>
             <AllRooms></AllRooms>
           </Route>
           <Route path='/confirm'>

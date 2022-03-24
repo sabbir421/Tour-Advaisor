@@ -2,6 +2,7 @@ import { Box, Button, Container, Grid } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import AllRoom from "../AllRoom/AllRoom/AllRoom";
 
 const AllHotel = ({ hotel }) => {
   const { user, admin } = useAuth();
@@ -36,7 +37,7 @@ const AllHotel = ({ hotel }) => {
               <p style={{ fontFamily: "Serif", marginTop: "-20px" }}>
                 {hotel.dis}
               </p>
-              <NavLink to={`/room/${hotel.adminEmail}`}>
+              <NavLink to={`/room/${hotel.adminEmail}/${hotel.hotelName}`}>
                 <Button variant="contained">View Room</Button>
               </NavLink>
             </Grid>
@@ -69,13 +70,14 @@ const AllHotel = ({ hotel }) => {
               <p style={{ fontFamily: "Serif", marginTop: "-20px" }}>
                 {hotel.dis}
               </p>
-              <NavLink to={`/room/${hotel.adminEmail}`}>
+              <NavLink to={`/room/${hotel.adminEmail}/${hotel.hotelName}`}>
                 <Button variant="contained">View Room</Button>
               </NavLink>
             </Grid>
           </Grid>
         </Box>
       )}
+     
     </Container>
   );
 };

@@ -23,7 +23,7 @@ const style = {
 };
 
 
-const HotelModal = ({openModal,handleCloseModal,room}) => {
+const HotelModal = ({openModal,handleCloseModal,room,hotelName}) => {
     const{type,price}=room;
     const {user}=useAuth();
     
@@ -39,6 +39,7 @@ const HotelModal = ({openModal,handleCloseModal,room}) => {
        type:type,
        price:price,
        email:user.email,
+       hotelName:hotelName
        
         
     }

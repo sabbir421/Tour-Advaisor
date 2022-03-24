@@ -10,7 +10,7 @@ import AllRoom from '../AllRoom/AllRoom/AllRoom';
 
 
 const AllRooms = () => {
-    const { hotelAdminEmail } = useParams();
+    const { hotelAdminEmail,hotelName } = useParams();
     const [rooms,setRooms]=useState([])
     useEffect(()=>{
         fetch('http://localhost:4000/room')
@@ -29,6 +29,7 @@ const AllRooms = () => {
                 rooms.map(room=><AllRoom
                 room={room}
                 hotelAdminEmail={hotelAdminEmail}
+                hotelName={hotelName}
                 ></AllRoom>)
             }
         </Grid>

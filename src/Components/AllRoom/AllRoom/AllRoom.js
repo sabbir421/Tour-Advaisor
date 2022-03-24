@@ -5,8 +5,9 @@ import ConfirmRoom from '../ConfirmRoom/ConfirmRoom';
 
 
 
-const AllRoom = ({room,hotelAdminEmail}) => {
-  console.log(hotelAdminEmail);
+const AllRoom = ({room,hotelAdminEmail,hotelName}) => {
+  console.log(hotelName);
+  
   const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
@@ -29,6 +30,7 @@ const AllRoom = ({room,hotelAdminEmail}) => {
        openModal={openModal}
        handleCloseModal={handleCloseModal}
       room={room}
+      hotelName={hotelName}
       ></ConfirmRoom>
       </>
     );
