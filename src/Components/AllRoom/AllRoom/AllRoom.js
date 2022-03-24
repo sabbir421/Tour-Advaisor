@@ -1,12 +1,11 @@
-import { Button, Grid, Rating, Typography } from '@mui/material';
+import { Button, Grid, Rating,} from '@mui/material';
 import React from 'react';
 
 import ConfirmRoom from '../ConfirmRoom/ConfirmRoom';
 
 
 
-const AllRoom = ({room,hotelAdminEmail,}) => {
-  
+const AllRoom = ({room,hotelAdminEmail}) => {
   console.log(hotelAdminEmail);
   const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
