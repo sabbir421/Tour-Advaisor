@@ -12,7 +12,6 @@ import NotFound from './Components/NotFound/NotFound';
 import AddService from './Components/AddService/AddService';
 import Myorder from './Components/MyOrder/Myorder';
 import AllOrder from './Components/AllOrder/AllOrder';
-import Hotels from './Components/Hotel/Hotels/Hotels';
 import Registation from './Components/log-in/Registation/Registation';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import PrivateRoute from './Components/log-in/PrivateRoute/PrivateRoute';
@@ -21,6 +20,7 @@ import AllHotels from './Components/AllHotels/AllHotels';
 import AllRooms from './Components/AllRooms/AllRooms';
 import AddRoom from './Components/Dashboard/AddRoom/AddRoom';
 import ConfirmRoom from './Components/AllRoom/ConfirmRoom/ConfirmRoom';
+import Services from './Components/Services/Services';
 
 
 function App() {
@@ -49,12 +49,14 @@ function App() {
           <PrivateRoute path='/dashboard'>
             <Dashboard></Dashboard>
           </PrivateRoute>
-          <Route path='/hotel'>
-            <Hotels></Hotels>
-          </Route>
           <Route path='/allhotel'>
             <AllHotels></AllHotels>
           </Route>
+           
+          <Route path='/service'>
+           <Services></Services>
+          </Route>
+         
           <Route path='/addRoom'>
            <AddRoom></AddRoom>
           </Route>

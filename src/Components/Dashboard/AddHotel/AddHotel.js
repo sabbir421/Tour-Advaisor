@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const AddHotel = () => {
   const[hotelName,setHotelName]=useState('')
+  const[place,setPlace]=useState('')
   const[dis,setDis]=useState('')
   const[adminEmail,setAdminEmail]=useState('')
   const [image,setImage]=useState(null);
@@ -15,6 +16,7 @@ const AddHotel = () => {
       }
       const formData = new FormData();
       formData.append('hotelName',hotelName)
+      formData.append('place',place)
       formData.append('adminEmail',adminEmail)
       formData.append('dis',dis)
       formData.append('image',image)
@@ -40,6 +42,12 @@ const AddHotel = () => {
       <TextField 
       label="Hotel Name" 
       onChange={e=>setHotelName(e.target.value)}
+      type="text"
+      variant="standard" />
+       <br />
+      <TextField 
+      label="Hotel Place" 
+      onChange={e=>setPlace(e.target.value)}
       type="text"
       variant="standard" />
        <br />

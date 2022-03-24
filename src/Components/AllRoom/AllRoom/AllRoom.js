@@ -1,11 +1,12 @@
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Rating, Typography } from '@mui/material';
 import React from 'react';
 
 import ConfirmRoom from '../ConfirmRoom/ConfirmRoom';
 
 
 
-const AllRoom = ({room,hotelAdminEmail}) => {
+const AllRoom = ({room,hotelAdminEmail,}) => {
+  
   console.log(hotelAdminEmail);
   const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
@@ -19,7 +20,7 @@ const AllRoom = ({room,hotelAdminEmail}) => {
            <h1>{room.type}</h1>
            <p>{room.dis}</p>
            <h1>{room.price}</h1>
-           <h6>{room.ratting}</h6>
+           <Rating name="read-only" value={room.ratting} readOnly />
           <Button variant='contained' onClick={handleOpenModal}>Book Now</Button>
          </Grid>
         }

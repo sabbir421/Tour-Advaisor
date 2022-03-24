@@ -26,6 +26,7 @@ import SuperAdmin from '../SuperAdmin/SuperAdmin';
 import ManageAllHotels from '../ManageAllHotels/ManageAllHotels';
 import mainCss from '../Dashboard/dashboard.css'
 import AddRoom from '../AddRoom/AddRoom';
+import Ratting from '../Ratting/Ratting';
 
 
 const style = {
@@ -47,6 +48,9 @@ const Dashboard = () => {
         <ListItem button>
         <NavLink to='/home' className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Home" /></NavLink>
       </ListItem>
+      <ListItem button>
+          <Link to={`${url}/ratting`} className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Send Your Feadback" /></Link>
+          </ListItem>
           
 {
   superAdmin && <Box>
@@ -133,6 +137,9 @@ const Dashboard = () => {
         </Route>
         <Route path={`${path}/myHotel`}>
           <HotelsBookings></HotelsBookings>
+        </Route>
+        <Route path={`${path}/ratting`}>
+          <Ratting></Ratting>
         </Route>
         <Route path={`${path}/addhotel`}>
           <AddHotel></AddHotel>

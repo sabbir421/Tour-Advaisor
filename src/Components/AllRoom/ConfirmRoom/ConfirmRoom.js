@@ -7,6 +7,7 @@ import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const style = {
@@ -24,6 +25,8 @@ const style = {
 
 const HotelModal = ({openModal,handleCloseModal,room}) => {
     const{type,price}=room;
+    const {user}=useAuth();
+    
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,6 +38,7 @@ const HotelModal = ({openModal,handleCloseModal,room}) => {
         ...roomBooking,
        type:type,
        price:price,
+       email:user.email,
        
         
     }
@@ -103,6 +107,7 @@ const HotelModal = ({openModal,handleCloseModal,room}) => {
           <Typography id="transition-modal-title" variant="h6" component="h2">
               {price}
             </Typography>
+         
             <form onSubmit={handleBookingSubmit}>
             
             
@@ -116,16 +121,7 @@ const HotelModal = ({openModal,handleCloseModal,room}) => {
           size="small"
           required
         />
-            <TextField
-             sx={{m:2}}
-          label="Email"
-          id="outlined-size-small"
-          defaultValue=""
-          onBlur={handleHotelBooking}
-          name="email"
-          size="small"
-          required
-        />
+            
             <TextField
              sx={{m:2}}
           label="Phone Number"

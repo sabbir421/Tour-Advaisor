@@ -1,8 +1,8 @@
 import React from 'react';
 import Bannar from '../Bannar/Bannar';
 
-import Services from '../Services/Services';
 import Upcomming from '../Upcomming/Upcomming';
+import RattingPage from './RattingPage/RattingsPage';
 
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
         <div id='home'>
            
             <Bannar></Bannar>
-            <Services ></Services>
+            <RattingPage></RattingPage>
             <Upcomming></Upcomming>
             
         </div>

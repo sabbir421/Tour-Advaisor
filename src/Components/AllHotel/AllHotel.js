@@ -1,54 +1,89 @@
-import { Box, Button, Container, Grid } from '@mui/material';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
+import { Box, Button, Container, Grid } from "@mui/material";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import AllRoom from "../AllRoom/AllRoom/AllRoom";
 
-const AllHotel = ({hotel}) => {
-  const{user,admin}=useAuth();
+const AllHotel = ({ hotel }) => {
+  const { user, admin } = useAuth();
   // console.log(user);
-  
-    // const[name,img,dis,point]=allHotel();
-    return (
-      <Container>
-        {
-          `${user.email}`===`${hotel.adminEmail}` &&<Box sx={{ flexGrow: 1 }}>
+
+  // const[name,img,dis,point]=allHotel();
+  return (
+    <Container>
+      {`${user.email}` === `${hotel.adminEmail}` && (
+        <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <img src={`data:image/png;base64,${hotel.image}`} alt="" style={{width:'100%',padding:'5px'}}/>
+              <img
+                src={`data:image/png;base64,${hotel.image}`}
+                alt=""
+                style={{ width: "80%", height: "350px", padding: "5px" }}
+              />
             </Grid>
             <Grid item xs={6}>
-              <h1>{hotel.hotelName}</h1>
-              <h6>{hotel.dis}</h6>
-              <p>{hotel.hotelDiscription}</p>
-              <NavLink to={`/room/${hotel.adminEmail}`}><Button variant='contained'>View Room</Button></NavLink>
+              <h1 style={{ color: "HotPink", fontFamily: "Cursive" }}>
+                {hotel.hotelName}
+              </h1>
+              <h3
+                style={{
+                  color: "Lime",
+                  fontFamily: "Monospace",
+                  marginTop: "-20px",
+                }}
+              >
+                {hotel.place}
+              </h3>
+              <p style={{ fontFamily: "Serif", marginTop: "-20px" }}>
+                {hotel.dis}
+              </p>
+
+              <NavLink to={`/room/${hotel.adminEmail}`}>
+                <Button variant="contained">View Room</Button>
+              </NavLink>
             </Grid>
-            
           </Grid>
         </Box>
-        }
-        {
-          !admin && <Box sx={{ flexGrow: 1 }}>
+      )}
+      {!admin && (
+        <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-            <img src={`data:image/png;base64,${hotel.image}`} alt="" style={{width:'100%',padding:'5px'}}/>
+              <img
+                src={`data:image/png;base64,${hotel.image}`}
+                alt=""
+                style={{ width: "80%", height: "350px", padding: "5px" }}
+              />
             </Grid>
             <Grid item xs={6}>
-              <h1>{hotel.hotelName}</h1>
-              <h1>{hotel.place}</h1>
-              <h1>{hotel.roomType}</h1>
-              <p>{hotel.hotelDiscription}</p>
-              <NavLink to={`/room/${hotel.adminEmail}`}><Button variant='contained'>View Room</Button></NavLink>
+              <h1 style={{ color: "HotPink", fontFamily: "Cursive" }}>
+                {hotel.hotelName}
+              </h1>
+              <h3
+                style={{
+                  color: "Lime",
+                  fontFamily: "Monospace",
+                  marginTop: "-20px",
+                }}
+              >
+                {hotel.place}
+              </h3>
+              <p style={{ fontFamily: "Serif", marginTop: "-20px" }}>
+                {hotel.dis}
+              </p>
+
+              <NavLink to={`/room/${hotel.adminEmail}`}>
+                <Button variant="contained">View Room</Button>
+              </NavLink>
             </Grid>
-            
           </Grid>
         </Box>
-        }
-         
-        
-        
-        
+      )}
+      <AllRoom
+      hotel={hotel}
+      ></AllRoom>
     </Container>
-    );
+  );
 };
 
 export default AllHotel;
