@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import useAuth from '../../../Hooks/useAuth';
+import { Button } from '@mui/material';
 
 const HotelsBookings = () => {
     const{user}=useAuth();
@@ -55,7 +56,10 @@ const HotelsBookings = () => {
               <TableCell align="right">{row.checkout}</TableCell>
               <TableCell align="right">Double</TableCell>
               <TableCell align="right">{row.price} / night</TableCell>
-              <TableCell align="right">Null</TableCell>
+              <TableCell align="right">
+      <Button variant="outlined" color="error">Remove</Button>
+              
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

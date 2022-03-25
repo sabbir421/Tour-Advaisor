@@ -60,9 +60,7 @@ const ManageAllHotel = ({hotel}) => {
                     <Typography variant="subtitle2" sx={{ color: 'info.main', fontWeight: 600, }} display="block" gutterBottom style={{marginLeft:'10px'}}>
                        Check Out: {checkout}
                     </Typography>
-                    <Button onClick={()=>showDeleteConfirm(hotel._id)} type="dashed">
-      Delete Booking
-    </Button>
+                    <Button onClick={()=>showDeleteConfirm(hotel._id)} type="dashed"> Delete Booking</Button>
                    
                 </Paper>
             </Grid>

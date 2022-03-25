@@ -2,7 +2,7 @@ import { Box, Button, Container, Grid } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import AllRoom from "../AllRoom/AllRoom/AllRoom";
+
 
 const AllHotel = ({ hotel }) => {
   const { user, admin } = useAuth();

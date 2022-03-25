@@ -2,7 +2,8 @@ import React from 'react';
 import Bannar from '../Bannar/Bannar';
 
 import Upcomming from '../Upcomming/Upcomming';
-import RattingPage from './RattingPage/RattingsPage';
+import Feedbacks from './FeedBack/FeedBacks/Feedbacks';
+
 
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
         <div id='home'>
            
             <Bannar></Bannar>
-            <RattingPage></RattingPage>
+            <Feedbacks></Feedbacks>
             <Upcomming></Upcomming>
             
         </div>

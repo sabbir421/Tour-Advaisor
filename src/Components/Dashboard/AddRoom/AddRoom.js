@@ -4,9 +4,6 @@ import { useState } from "react";
 
 const AddRoom = () => {
 
-  
-  
- 
   const [type, setType] = useState("");
   const [dis, setDis] = useState("");
   const [price, setPrice] = useState("");
