@@ -6,7 +6,7 @@ const AllOrder = () => {
     const [allOrder,setAllOrder]=useState([])
     
     useEffect(()=>{
-        fetch('https://tour-guide-serve.herokuapp.com/bookingorder')
+        fetch('https://tour-advaisor-server.herokuapp.com/bookingorder')
         .then(res=>res.json())
         .then(data=>{
             // console.log(data);

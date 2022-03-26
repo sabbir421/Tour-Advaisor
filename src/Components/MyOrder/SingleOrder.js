@@ -30,7 +30,7 @@ const SingleOrder = ({booking,bookingLength}) => {
 
   
       const deletePost=(id)=> {
-        axios.delete(`https://tour-guide-serve.herokuapp.com/bookingorder/delete/${id}/`)  
+        axios.delete(`https://tour-advaisor-server.herokuapp.com/bookingorder/delete/${id}/`)  
           .then(res => {  
             console.log(res);  
             console.log(res.data);  

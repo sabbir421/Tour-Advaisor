@@ -16,7 +16,7 @@ const HotelsBookings = () => {
     const [bookedHotels,setBookedHotels]=useState([])
 
     useEffect(()=>{
-        const url=`http://localhost:4000/hotelBooking?email=${user.email}` 
+        const url=`https://tour-advaisor-server.herokuapp.com/hotelBooking?email=${user.email}` 
         fetch(url)
         .then(res=>res.json())
         .then(data=>{

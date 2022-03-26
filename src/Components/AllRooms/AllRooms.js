@@ -13,7 +13,7 @@ const AllRooms = () => {
     const { hotelAdminEmail,hotelName } = useParams();
     const [rooms,setRooms]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:4000/room')
+        fetch('https://tour-advaisor-server.herokuapp.com/room')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

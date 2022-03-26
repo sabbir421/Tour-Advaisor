@@ -56,7 +56,7 @@ import AllHotel from '../AllHotel/AllHotel';
 const AllHotels = () => {
     const [hotels,setHotel]=useState([])
     useEffect(()=>{
-        fetch("http://localhost:4000/addHotel")
+        fetch("https://tour-advaisor-server.herokuapp.com/addHotel")
         .then(res=>res.json())
         .then(data=>{setHotel(data)})
     },[]) 

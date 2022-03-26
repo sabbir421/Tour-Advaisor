@@ -17,7 +17,7 @@ const Ratting = () => {
         formData.append("rate",rate);
         formData.append("userName",user.displayName);
 
-        fetch("http://localhost:4000/feedback", {
+        fetch("https://tour-advaisor-server.herokuapp.com/feedback", {
       method: "POST",
       body: formData,
     })
