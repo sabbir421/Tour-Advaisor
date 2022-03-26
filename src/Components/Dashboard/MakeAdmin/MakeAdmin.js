@@ -1,5 +1,6 @@
-import { Alert, Button, TextField } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import adminimg from '../../../img/admin.jpg'
 
 const MakeAdmin = () => {
     const [email,setEmail]=useState(' ');
@@ -28,19 +29,30 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div>
-            <h1>Make Admin</h1>
-            <form onSubmit={handleMakeAdmin}>
+        <Container>
+            <Typography variant='h3' style={{color:'#7B68EE',fontFamily: " Cursive", marginTop:'10px'}}>Make Admin</Typography>
+        <Grid container spacing={2}>
+           
+  <Grid item xs={6} style={{marginTop:'100px'}}>
+  <form onSubmit={handleMakeAdmin}>
             <TextField
-            sx={{width: '50%'}}
+            sx={{width: '75%'}}
               label="email"
               type="email"
               onBlur={handleOnBlur}
                variant="standard" />
-               <Button type='submit' variant='contained'>Make Admin</Button>
+               <br />
+               <Button type='submit' variant='contained' sx={{m:2}}>Make Admin</Button>
             </form>
             {success && <Alert severity="success">Made Admin successfully!</Alert>}
-        </div>
+  </Grid>
+  <Grid item xs={4}>
+  <img src={adminimg} className="img-fluid pe-2" style={{height:'400px', width:'450px'}} alt="" />
+  </Grid>
+  
+</Grid>
+</Container>
+       
     );
 };
 

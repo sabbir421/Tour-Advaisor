@@ -1,6 +1,7 @@
-import { Button, Input, TextField } from "@mui/material";
+import { Button, Grid, Input, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
+import room from "../../../img/room.jpg"
 
 const AddRoom = () => {
 
@@ -35,8 +36,11 @@ const AddRoom = () => {
   };
   return (
     <div>
-      <h1>Add Room </h1>
-      <form onSubmit={handleSubmit}>
+      <Typography sx={{textAlign: 'center',m:2}} style={{fontFamily:"Cursive",color:'#BA55D3'}} variant='h3'>Add New Room</Typography>
+
+      <Grid container spacing={2}>
+  <Grid item xs={6}>
+  <form onSubmit={handleSubmit}>
         <TextField
           required
           onChange={(e) => setType(e.target.value)}
@@ -90,6 +94,13 @@ const AddRoom = () => {
           Upload
         </Button>
       </form>
+  </Grid>
+  <Grid item xs={6}>
+   <img src={room} className="img-fluid pe-2" style={{height:'400px', width:'450px'}} alt="" />
+  </Grid>
+  
+</Grid>
+      
     </div>
   );
 };

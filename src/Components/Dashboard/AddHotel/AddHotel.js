@@ -1,6 +1,7 @@
-import { Button, Input, TextField } from '@mui/material';
+import { Button, Grid, Input, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
+import hotel from '../../../img/hotel.png'
 
 const AddHotel = () => {
   const[hotelName,setHotelName]=useState('')
@@ -37,8 +38,11 @@ const AddHotel = () => {
   }
   return (
     <div>
-      <h1>Add Your Hotel</h1>
-      <form onSubmit={handleSubmit}>
+       <Typography variant='h3' style={{color:'#7B68EE',fontFamily: " Cursive", marginTop:'10px'}}>Add Hotel</Typography>
+
+      <Grid container spacing={2}>
+  <Grid item xs={8}>
+  <form onSubmit={handleSubmit}>
       <TextField 
       label="Hotel Name" 
       onChange={e=>setHotelName(e.target.value)}
@@ -72,6 +76,12 @@ const AddHotel = () => {
     Upload
   </Button>
       </form>
+  </Grid>
+  <Grid item xs={4}>
+    <img src={hotel} className="img-fluid pe-2" style={{height:'400px', width:'450px'}} alt="" />
+  </Grid>
+  
+</Grid>
     </div>
   );
 };

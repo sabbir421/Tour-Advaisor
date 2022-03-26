@@ -19,7 +19,7 @@ const Feedbacks = () => {
            
 
 <Container>
-    <Typography sx={{textAlign: 'center',m:2}} style={{fontFamily:"Cursive",color:'#800080'}} variant='h3'>Customer Feedback</Typography>
+    <Typography sx={{textAlign: 'center',m:2}} style={{fontFamily:"Cursive",color:'#BA55D3'}} variant='h3'>Customer Feedback</Typography>
 <Grid container spacing={{ xs:2, md:2, }} columns={{  xs: 12, sm: 12, md: 11 }}>
       
       {

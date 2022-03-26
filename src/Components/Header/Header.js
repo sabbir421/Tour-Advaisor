@@ -17,7 +17,7 @@ const Header = () => {
   
     return (
         <div>
-         <Navbar className='mb-2' bg="dark" variant="dark" sticky="top" collapseOnSelect expand="lg" >
+         <Navbar className='' bg="dark" variant="dark" sticky="top" collapseOnSelect expand="lg" >
                 <Container>
                     <Navbar.Brand href="#home">Tour <span className='text-warning'>Advisor</span></Navbar.Brand>
                     <Navbar.Toggle />

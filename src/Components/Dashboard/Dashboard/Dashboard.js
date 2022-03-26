@@ -44,7 +44,7 @@ const Dashboard = () => {
         <Box  sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={4} >
-        <List sx={style} component="nav" aria-label="mailbox folders" className='bg-primary'>
+        <List sx={{ borderRadius: 1,width:'75%' }} component="nav" aria-label="mailbox folders" className='bg-secondary'>
         <ListItem button>
         <NavLink to='/home' className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Home" /></NavLink>
       </ListItem>
@@ -105,7 +105,7 @@ const Dashboard = () => {
           <NavLink to={`${url}/myOrder`} className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="My Packege" /></NavLink>
           </ListItem>
       
-      <Divider light />
+      
      
     </List>
         </Grid>

@@ -16,6 +16,7 @@ const AllRooms = () => {
         fetch('http://localhost:4000/room')
         .then(res=>res.json())
         .then(data=>{
+            console.log(data);
             setRooms(data);
         })
     },[])

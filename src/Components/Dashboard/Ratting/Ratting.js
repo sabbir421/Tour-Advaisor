@@ -2,7 +2,7 @@ import { Box, Button, Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
-import feedback from '../../../img/feedback.jpg'
+import feedback from '../../../img/feedbac3.jpg'
 
 const Ratting = () => {
     const [comment,setComment]=useState('')
