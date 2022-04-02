@@ -7,19 +7,19 @@ import t_buddy from '../../../img/partner logo/tb.png'
 
 const Partner = () => {
     return (
-        <Container>
+        <Container className='shadow'>
             <Typography sx={{textAlign: 'center',mt:2,mb:4}} style={{fontFamily:"Cursive",color:'#BA55D3'}} variant='h3'>Our Tour Partner</Typography>
              <Grid container spacing={2}>
-  <Grid item xs={3}>
-    <img src={t_group} alt=""  style={{width:'100%',height:'200px'}}/>
+  <Grid item xs={3} sx={{mb:2}}>
+    <img src={t_group} alt=""  style={{width:'100%',height:'200px',}}/>
   </Grid>
-  <Grid item xs={3}>
+  <Grid item xs={3} sx={{mb:2}}>
     <img src={t_buddy} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
-  <Grid item xs={3}>
+  <Grid item xs={3} sx={{mb:2}}>
     <img src={swades} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
-  <Grid item xs={3}>
+  <Grid item xs={3} sx={{mb:2}}>
     <img src={t_Lover} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
   

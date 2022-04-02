@@ -1,9 +1,10 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 
 const Upcomming = () => {
     return (
         <div>
-            <h1 className='d-flex justify-content-center my-3 text-success'>Upcomming Tour</h1>
+           <Typography sx={{textAlign: 'center',mt:4,mb:4}} style={{fontFamily:"Cursive",color:'#BA55D3'}} variant='h3'>Upcomming Packeges</Typography>
             <div className="mx-5 my-5">
   <div className="row shadow">
     <div className="col shadow p-2 ">
