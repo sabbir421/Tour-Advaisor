@@ -14,13 +14,13 @@ const Partner = () => {
     <img src={t_group} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
   <Grid item xs={3}>
-    <img src={t_buddy} alt=""  style={{width:'100%'}}/>
+    <img src={t_buddy} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
   <Grid item xs={3}>
-    <img src={swades} alt=""  style={{width:'100%'}}/>
+    <img src={swades} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
   <Grid item xs={3}>
-    <img src={t_Lover} alt=""  style={{width:'100%'}}/>
+    <img src={t_Lover} alt=""  style={{width:'100%',height:'200px'}}/>
   </Grid>
   
   
