@@ -47,26 +47,55 @@
 //     }
 // ]
 
+import { Container } from '@mui/material';
 import React from 'react';
 import { useEffect } from 'react';
+import { css } from "@emotion/react";
 import { useState } from 'react';
+import { ClipLoader } from 'react-spinners';
 import AllHotel from '../AllHotel/AllHotel';
 
 
 const AllHotels = () => {
     const [hotels,setHotel]=useState([])
+    const [loading, setLoading] = useState(true);
+    let [color] = useState("#ffffff");
     useEffect(()=>{
         fetch("https://tour-advaisor-server.herokuapp.com/addHotel")
         .then(res=>res.json())
-        .then(data=>{setHotel(data)})
+        .then(data=>{
+            setHotel(data);
+            setLoading(false);
+        })
     },[]) 
+    const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
     return (
-        
-        <div>
+        <Container>
+            {
+              loading ? (
+                <div className="d-flex justify-content-center my-5">
+                <ClipLoader
+                  color={color}
+                  loading={loading}
+                  css={override}
+                  size={150}
+                />
+              </div>
+              ):(
+                <div>
            {
                hotels.map(hotel=> <AllHotel hotel={hotel}></AllHotel>)
            }
         </div>
+              )  
+            }
+            
+        </Container>
+        
     );
 };
 

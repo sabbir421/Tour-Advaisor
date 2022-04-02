@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+
 import { Link } from 'react-router-dom';
 
 
@@ -10,10 +10,10 @@ const Service = ({service}) => {
     
     return (
         
-        <div >
+        
 
 <Grid item xs={12} sm={12} md={3} sx={{p:2,boxShadow: 3,borderRadius: 4,mb:4,m:2}} style={{justifyContent:'space-between'}} >
-<img src={`data:image/png;base64,${image}`}alt=''  style={{width:'100%', }} />
+<img src={`data:image/png;base64,${image}`}alt=''  style={{ width: "100%", height: "250px",}} />
 <h1>{hostName}</h1>
 <h3>{destination}</h3>
 <p>{discription}</p>
@@ -25,7 +25,7 @@ const Service = ({service}) => {
     </Grid>
   
    
-        </div>
+        
     );
 };
 

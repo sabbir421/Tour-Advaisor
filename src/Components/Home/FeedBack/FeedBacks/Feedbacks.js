@@ -11,7 +11,7 @@ const Feedbacks = () => {
         fetch('https://tour-advaisor-server.herokuapp.com/feedback')
         .then(res=>res.json())
         .then(data=>{
-            setFeedbacks(data)
+            setFeedbacks(data.slice(0,3))
         })
     },[])
     return (
