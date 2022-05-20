@@ -18,7 +18,7 @@ const AllHotel = ({ hotel }) => {
               <img
                 src={`data:image/png;base64,${hotel.image}`}
                 alt=""
-                style={{ width: "80%", height: "350px", padding: "5px" }}
+                style={{ width: "80%", height: "350px", padding: "5px",borderRadius:'10px' }}
               />
             </Grid>
             <Grid item xs={6}>
@@ -27,7 +27,7 @@ const AllHotel = ({ hotel }) => {
               </h1>
               <h3
                 style={{
-                  color: "Lime",
+                  color: "CornflowerBlue",
                   fontFamily: "Monospace",
                   marginTop: "-20px",
                 }}
@@ -51,7 +51,7 @@ const AllHotel = ({ hotel }) => {
               <img
                 src={`data:image/png;base64,${hotel.image}`}
                 alt=""
-                style={{ width: "80%", height: "350px", padding: "5px" }}
+                style={{ width: "80%", height: "350px", padding: "5px",borderRadius:'10px' }}
               />
             </Grid>
             <Grid item xs={6}>
@@ -60,7 +60,7 @@ const AllHotel = ({ hotel }) => {
               </h1>
               <h3
                 style={{
-                  color: "Lime",
+                  color: " CornflowerBlue",
                   fontFamily: "Monospace",
                   marginTop: "-20px",
                 }}

@@ -1,23 +1,23 @@
 import { Box, Button, Grid, TextField } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
-import useAuth from '../../../Hooks/useAuth';
-import feedback from '../../../img/feedbac3.jpg'
+import useAuth from '../../Hooks/useAuth';
 
-const Ratting = () => {
+const BologPost = () => {
+
     const [comment,setComment]=useState('')
-    const [rate,setRate]=useState('')
+    const [heading,setHeading]=useState('')
     const {user}=useAuth()
 
     const handleRatting=(e)=>{
       e.preventDefault();
-        console.log(rate,comment,user.displayName);
+        // console.log(rate,comment,user.displayName);
         const formData=new FormData();
+        formData.append("heading",heading)
         formData.append("comment",comment);
-        formData.append("rate",rate);
         formData.append("userName",user.displayName);
 
-        fetch("http://localhost:5000/feedback", {
+        fetch("http://localhost:5000/blog", {
       method: "POST",
       body: formData,
     })
@@ -36,28 +36,27 @@ const Ratting = () => {
            <form onSubmit={handleRatting}>
            <TextField
             sx={{width:'75%',mt:4 }}
-          label="Write Your Feedback"
+          label="Write A Headding"
+          onChange={(e)=>setHeading(e.target.value)}
+          variant="standard"
+        /> <br />
+           <TextField
+            sx={{width:'75%',mt:4 }}
+          label="Write Your Blog"
           onChange={(e)=>setComment(e.target.value)}
           multiline
           variant="standard"
         /> <br />
-           <TextField
-           sx={{width:'75%', mt:2}}
-          id="standard-textarea"
-          label="Your Ratting Out Of 5"
-          onChange={(e)=>setRate(e.target.value)}
-          type='text'
-          variant="standard"
-        /> <br />
-        <Button variant='contained' type='submit' sx={{mt:2}}>Send Feedback</Button>
+            
+        <Button variant='contained' type='submit' sx={{mt:2}}>POST</Button>
             </form>
           </Grid>
           <Grid item xs={6}>
-            <img src={feedback} className="img-fluid pe-2" style={{height:'400px', width:'450px'}} alt="" />
+            {/* <img src={feedback} className="img-fluid pe-2" style={{height:'400px', width:'450px'}} alt="" /> */}
           </Grid>
         </Grid>
       </Box>
     );
 };
 
-export default Ratting;
+export default BologPost;

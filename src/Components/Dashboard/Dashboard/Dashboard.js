@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
 import { NavLink } from 'react-router-dom';
 import {
   
@@ -27,6 +26,8 @@ import ManageAllHotels from '../ManageAllHotels/ManageAllHotels';
 import mainCss from '../Dashboard/dashboard.css'
 import AddRoom from '../AddRoom/AddRoom';
 import Ratting from '../Ratting/Ratting';
+import DetailSingleHotel from '../HotelsBooking/DetailSingleHotel';
+import BologPost from '../../Blog/BologPost';
 
 
 const style = {
@@ -43,13 +44,16 @@ const Dashboard = () => {
     return (
         <Box  sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={4} >
-        <List sx={{ borderRadius: 1,width:'75%' }} component="nav" aria-label="mailbox folders" className='bg-secondary'>
+        <Grid item xs={12} sm={12} md={4} >
+        <List sx={{ borderRadius: 1,width:'75%',mt:2, }} component="nav" aria-label="mailbox folders" className='bg-primary '>
         <ListItem button>
         <NavLink to='/home' className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Home" /></NavLink>
       </ListItem>
       <ListItem button>
           <Link to={`${url}/ratting`} className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Send Your Feadback" /></Link>
+          </ListItem>
+      <ListItem button>
+          <Link to={`${url}/blog`} className='text-white fw-bolder text-uppercase ms-4'><ListItemText primary="Write A blog" /></Link>
           </ListItem>
           
 {
@@ -138,8 +142,14 @@ const Dashboard = () => {
         <Route path={`${path}/myHotel`}>
           <HotelsBookings></HotelsBookings>
         </Route>
+        <Route path='/singleHotelDetails'>
+          <DetailSingleHotel></DetailSingleHotel>
+        </Route>
         <Route path={`${path}/ratting`}>
           <Ratting></Ratting>
+        </Route>
+        <Route path={`${path}/blog`}>
+          <BologPost></BologPost>
         </Route>
         <Route path={`${path}/addhotel`}>
           <AddHotel></AddHotel>

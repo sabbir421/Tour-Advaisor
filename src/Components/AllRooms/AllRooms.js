@@ -17,7 +17,7 @@ const AllRooms = () => {
     const [loading, setLoading] = useState(true);
     let [color] = useState("#ffffff");
     useEffect(()=>{
-        fetch('https://tour-advaisor-server.herokuapp.com/room')
+        fetch('http://localhost:5000/room')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

@@ -10,13 +10,17 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import useAuth from '../../../Hooks/useAuth';
 import { Button } from '@mui/material';
+import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 
 const HotelsBookings = () => {
     const{user}=useAuth();
     const [bookedHotels,setBookedHotels]=useState([])
-
+    
     useEffect(()=>{
-        const url=`https://tour-advaisor-server.herokuapp.com/hotelBooking?email=${user.email}` 
+        const url=`http://localhost:5000/hotelBooking?email=${user.email}` 
         fetch(url)
         .then(res=>res.json())
         .then(data=>{
@@ -26,6 +30,8 @@ const HotelsBookings = () => {
 
     }, [])
     return (
+      <>
+      
         <div>
             <h1 className='text-primary text-center text-uppercase fw-bolder'>My Hotel</h1>
             <TableContainer component={Paper}>
@@ -57,7 +63,9 @@ const HotelsBookings = () => {
               <TableCell align="right">Double</TableCell>
               <TableCell align="right">{row.price} / night</TableCell>
               <TableCell align="right">
-      <Button variant="outlined" color="error">Remove</Button>
+              <NavLink to={`/bookedRoomDetails/${row._id}`}> <Button variant='contained' style={{color:'blue',textDecoration:'none', marginRight:2,color:'white'}}>Details</Button></NavLink>
+             <Button variant="outlined" color="error">Remove</Button>
+            
               
               </TableCell>
             </TableRow>
@@ -66,6 +74,10 @@ const HotelsBookings = () => {
       </Table>
     </TableContainer>
         </div>
+
+  
+
+        </>
     );
 };
 

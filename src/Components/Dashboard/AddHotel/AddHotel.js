@@ -22,7 +22,7 @@ const AddHotel = () => {
       formData.append('dis',dis)
       formData.append('image',image)
 
-      fetch('https://tour-advaisor-server.herokuapp.com/addHotel', {
+      fetch('http://localhost:5000/addHotel', {
   method: 'POST',
   body: formData
 })

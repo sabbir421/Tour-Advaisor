@@ -11,7 +11,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true);
   let [color] = useState("#ffffff");
   useEffect(() => {
-    fetch("https://tour-advaisor-server.herokuapp.com/packege")
+    fetch("http://localhost:5000/packege")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);

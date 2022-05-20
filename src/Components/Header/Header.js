@@ -25,6 +25,8 @@ const Header = () => {
                         <Nav.Link className='text-warning' as={HashLink} to="/home#home">Home</Nav.Link>
                         <Nav.Link className='text-warning' as={HashLink} to="/service">Packeges</Nav.Link>
                         <Nav.Link className='text-warning' as={HashLink} to="/allhotel">Hotels</Nav.Link>
+                        <Nav.Link className='text-warning' as={HashLink} to="/allFeedbacks">Feedback</Nav.Link>
+                        <Nav.Link className='text-warning' as={HashLink} to="/blog">Blogs</Nav.Link>
                  
                        {
                            user?.email?  <Box>

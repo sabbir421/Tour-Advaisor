@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 import { Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
 import mainCss from '../MyOrder/MyOrder.css'
+import { NavLink } from 'react-router-dom';
 
 
 const confirm = Modal.confirm;
@@ -30,7 +31,7 @@ const SingleOrder = ({booking,bookingLength}) => {
 
   
       const deletePost=(id)=> {
-        axios.delete(`https://tour-advaisor-server.herokuapp.com/bookingorder/delete/${id}/`)  
+        axios.delete(`http://localhost:5000/bookingorder/delete/${id}/`)  
           .then(res => {  
             console.log(res);  
             console.log(res.data);  
@@ -52,6 +53,7 @@ const SingleOrder = ({booking,bookingLength}) => {
                        <p>Tourist Email :{booking.userEmail}</p>
                        <p>From {booking.from} to {booking.placeName}</p>
                        </Card.Text>
+                       <NavLink to={`/singlePackge/${booking._id}`}><Button>Details</Button></NavLink>
                        <Button onClick={()=>showDeleteConfirm(booking._id)} type="dashed">
       Delete Booking
     </Button>

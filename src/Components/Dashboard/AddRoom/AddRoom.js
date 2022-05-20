@@ -22,7 +22,7 @@ const AddRoom = () => {
     formData.append("roomAdminEmail", roomAdminEmail);
     formData.append("image", image);
 
-    fetch("https://tour-advaisor-server.herokuapp.com/room", {
+    fetch("http://localhost:5000/room", {
       method: "POST",
       body: formData,
     })

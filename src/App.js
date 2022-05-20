@@ -21,6 +21,12 @@ import AllRooms from './Components/AllRooms/AllRooms';
 import AddRoom from './Components/Dashboard/AddRoom/AddRoom';
 import ConfirmRoom from './Components/AllRoom/ConfirmRoom/ConfirmRoom';
 import Services from './Components/Services/Services';
+import AllRattings from './Components/Home/FeedBack/AllRattings/AllRattings';
+import DetailSingleHotel from './Components/Dashboard/HotelsBooking/DetailSingleHotel';
+import SinglePackegeDetails from './Components/MyOrder/SinglePackegeDetails';
+import AllFeedbacks from './Components/AllFeedback/AllFeedbacks';
+import Blogs from './Components/Blog/GetBlogs/Blogs';
+
 
 
 function App() {
@@ -56,6 +62,10 @@ function App() {
           <Route path='/service'>
            <Services></Services>
           </Route>
+          <Route path='/blog'>
+          <Blogs></Blogs>
+          </Route>
+          
          
           <Route path='/addRoom'>
            <AddRoom></AddRoom>
@@ -82,6 +92,19 @@ function App() {
           <Route  path='/registation'>
           <Registation></Registation>
           </Route>
+          <Route path='/allRattings'>
+            <AllRattings></AllRattings>
+          </Route>
+          <Route path='/bookedRoomDetails/:id'>
+           <DetailSingleHotel></DetailSingleHotel>
+          </Route>
+          <Route path='/singlePackge/:id'>
+          <SinglePackegeDetails></SinglePackegeDetails>
+          </Route>
+          <Route path='/allFeedbacks'>
+          <AllFeedbacks></AllFeedbacks>
+          </Route>
+          
           <Route  path='*'>
            <NotFound></NotFound>
           </Route>

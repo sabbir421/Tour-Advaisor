@@ -28,7 +28,7 @@ const ManageAllHotel = ({hotel}) => {
 
   
       const deletePost=(id)=> {
-        axios.delete(`https://tour-advaisor-server.herokuapp.com/hotelBookings/delete/${id}/`)  
+        axios.delete(`http://localhost:5000/hotelBookings/delete/${id}/`)  
           .then(res => {  
             console.log(res);  
             console.log(res.data);  

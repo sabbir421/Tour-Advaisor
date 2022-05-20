@@ -10,7 +10,7 @@ const ManageAllHotels = () => {
     const [hotels,setHotels]=useState([])
 
     useEffect(()=>{
-        fetch('https://tour-advaisor-server.herokuapp.com/hotelBookings')
+        fetch('http://localhost:5000/hotelBookings')
         .then(res=>res.json())
         .then(data=>{
             setHotels(data)

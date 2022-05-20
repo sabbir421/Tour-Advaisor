@@ -1,14 +1,15 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
 
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { NavLink } from 'react-bootstrap';
 import Feedback from '../Feedback/Feedback';
 
 const Feedbacks = () => {
     const[feedbacks,setFeedbacks]=useState([])
     useEffect(()=>{
-        fetch('https://tour-advaisor-server.herokuapp.com/feedback')
+        fetch('http://localhost:5000/feedback')
         .then(res=>res.json())
         .then(data=>{
             setFeedbacks(data.slice(0,3))
@@ -28,6 +29,8 @@ const Feedbacks = () => {
                 ></Feedback>)
       }
      </Grid>
+    
+
     </Container>
         
     );

@@ -32,7 +32,7 @@
 
 // export default AddService;
 
-import { Button, Container, Grid, Input, TextField } from '@mui/material';
+import { Button, Container, Grid, Input, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 
@@ -51,7 +51,7 @@ const AddService = () => {
         formData.append('discription',discription)
         formData.append('price',price)
         formData.append('img',image)
-        fetch('https://tour-advaisor-server.herokuapp.com/packege', {
+        fetch('http://localhost:5000/packege', {
             method: 'POST',
             body: formData
           })
@@ -67,6 +67,7 @@ const AddService = () => {
     }
     return (
         <Container>
+          <Typography sx={{textAlign: 'center',m:2}} style={{fontFamily:"Cursive",color:'#BA55D3'}} variant='h3'>Add Your Packeg</Typography>
             <Grid container spacing={2}>
   <Grid item xs={8}>
     <form onSubmit={handleSubmit}>

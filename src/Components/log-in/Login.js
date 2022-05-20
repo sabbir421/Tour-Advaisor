@@ -3,11 +3,13 @@ import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import login from '../../img/login4.svg'
 import { useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
+import { ClipLoader } from 'react-spinners';
+import { css } from "@emotion/react";
 
 
 const Login = () => {
-  const {singinUser,singinWithGoogle}=useAuth();
-  
+  const {singinUser,singinWithGoogle,isLoading,user}=useAuth();
+  let [color] = useState("#ffffff");
   const [loginData,setLoginData]=useState({})
 
   const location = useLocation();
@@ -36,12 +38,30 @@ const handleEmailLogin=e=>{
 const googleSingin=()=>{
   singinWithGoogle(location,history)
 }
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
 
 
     return (
         <Container className='login-form   my-2'>
           <h1>Login</h1>
-            <Grid container spacing={2}>
+          {
+            isLoading ?(
+              <div className="d-flex justify-content-center my-5">
+          <ClipLoader
+            color={color}
+            loading={isLoading}
+            css={override}
+            size={150}
+          />
+        </div>
+
+            ):(
+
+              <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <form onSubmit={handleEmailLogin}>
                 <TextField
@@ -74,6 +94,9 @@ const googleSingin=()=>{
                 <img src={login} style={{width:'100%'}} alt="" />
               </Grid>
             </Grid>
+            )
+          }
+            
             
         </Container>
     );
