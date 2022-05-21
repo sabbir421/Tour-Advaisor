@@ -7,6 +7,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { useParams } from "react-router-dom";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
+import successImg from '../../img/Paymentsuccessful21.png'
 import { async } from "@firebase/util";
 import axios from "axios";
 const SinglePackegeDetails = () => {
@@ -93,25 +94,29 @@ const SinglePackegeDetails = () => {
   return (
     <Container>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} style={{ backgroundColor: "Highlight" }}>
+        <Grid container spacing={2} style={{  }}>
           <Grid sx={{ mt: 2 }} className="container" item md={8} sm={12}>
-            <Typography sx={{ textAlign: "center", m: 2, color: "white" }}>
+            <Typography sx={{ textAlign: "center", m: 2, color: "#f44336" }}>
               Customer Name: {booking.name}
             </Typography>
-            <Typography sx={{ textAlign: "center", m: 2, color: "white" }}>
-              From: {booking.from}
+            <Typography sx={{ textAlign: "center", m: 2,color: "#f44336" }}>
+            Contact : {booking.phone}
             </Typography>
-            <Typography sx={{ textAlign: "center", m: 2, color: "white" }}>
-              To: {booking.placeName}
+            <Typography sx={{ textAlign: "center", m: 2, color: "#f44336" }}>
+              Email: {booking.userEmail}
             </Typography>
-            <Typography sx={{ textAlign: "center", m: 2, color: "white" }}>
+            <Typography sx={{ textAlign: "center", m: 2, color: "#f44336"}}>
               Price: {booking.amount}
             </Typography>
           </Grid>
 
           <Grid sx={{ mt: 2, p: 2 }} item md={4} sm={12} container>
-            <Col>
-              {!booking.isPaid && (
+            {
+                booking.isPaid ? <Col>
+              <img className="img-fluid" style={{height:'300px',}} src={successImg} alt="" />
+            </Col>:
+           <Col>
+           {!booking.isPaid && (
                 <ListGroup.Item>
                   {!sdkReady ? (
                     <div className="d-flex justify-content-center my-5">
@@ -130,7 +135,9 @@ const SinglePackegeDetails = () => {
                   )}
                 </ListGroup.Item>
               )}
-            </Col>
+           </Col>
+
+            }
           </Grid>
         </Grid>
       </Box>
