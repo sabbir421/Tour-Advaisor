@@ -35,7 +35,7 @@ const DetailSingleHotel = () => {
 
   const successPaymentHandler =async (paymentResult) => {
     console.log("payment e dukche");
-    // fetch(`http://localhost:5000/booking-payment/${id}`, {
+    // fetch(`https://tour-advaisor-server.herokuapp.com/booking-payment/${id}`, {
     //   method: "PUT",
     //   headers: {
     //     'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const DetailSingleHotel = () => {
   }
 
   const { data } = await axios.put(
-    `http://localhost:5000/booking-payment/${id}`,
+    `https://tour-advaisor-server.herokuapp.com/booking-payment/${id}`,
       config
   )
   setPaymentSuccess(true)
@@ -67,7 +67,7 @@ const DetailSingleHotel = () => {
 
   };
   useEffect(() => {
-    fetch("http://localhost:5000/hotelBookings")
+    fetch("https://tour-advaisor-server.herokuapp.com/hotelBookings")
       .then((res) => res.json())
       .then((data) => {
         const info = data.find((dt) => dt._id === id);

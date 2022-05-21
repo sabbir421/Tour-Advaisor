@@ -61,7 +61,7 @@ const AllHotels = () => {
     const [loading, setLoading] = useState(true);
     let [color] = useState("#ffffff");
     useEffect(()=>{
-        fetch("http://localhost:5000/addHotel")
+        fetch("https://tour-advaisor-server.herokuapp.com/addHotel")
         .then(res=>res.json())
         .then(data=>{
             setHotel(data);

@@ -88,7 +88,7 @@ const useFirebase = () =>{
     const saveUser=(email,displayName,method)=>{
 
       const user = { email, displayName, };
-        fetch('http://localhost:5000/users', {
+        fetch('https://tour-advaisor-server.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -129,13 +129,13 @@ const useFirebase = () =>{
     },[])
 
     useEffect(() => {
-      fetch(`http://localhost:5000/users/${user.email}`)
+      fetch(`https://tour-advaisor-server.herokuapp.com/users/${user.email}`)
           .then(res => res.json())
           .then(data => setAdmin(data.admin))
   }, [user.email])
   //super Admin
     useEffect(() => {
-      fetch(`http://localhost:5000/users/${user.email}`)
+      fetch(`https://tour-advaisor-server.herokuapp.com/users/${user.email}`)
           .then(res => res.json())
           .then(data => {
             console.log(data.superAdmin);

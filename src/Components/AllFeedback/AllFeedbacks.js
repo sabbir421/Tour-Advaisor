@@ -7,7 +7,7 @@ import AllFeedback from './AllFeedback';
 const AllFeedbacks = () => {
     const[feedbacks,setFeedbacks]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/feedback')
+        fetch('https://tour-advaisor-server.herokuapp.com/feedback')
         .then(req=>req.json())
         .then(data=>{setFeedbacks(data);
         })

@@ -22,7 +22,7 @@ const HotelsBookings = () => {
     const [status,setStatus]=useState({})
     
     useEffect(()=>{
-        const url=`http://localhost:5000/hotelBooking?email=${user.email}` 
+        const url=`https://tour-advaisor-server.herokuapp.com/hotelBooking?email=${user.email}` 
         fetch(url)
         .then(res=>res.json())
         .then(data=>{
@@ -33,7 +33,7 @@ const HotelsBookings = () => {
     }, [])
 
     useEffect(()=>{
-      fetch('http://localhost:5000/hotelBooking')
+      fetch('https://tour-advaisor-server.herokuapp.com/hotelBooking')
       .then(res=>res.json())
       .then(data=>{
         setStatus(data)
@@ -59,7 +59,7 @@ const HotelsBookings = () => {
     }
 
     const deletePost=(id)=> {
-      axios.delete(`http://localhost:5000/hotelBooking/delete/${id}/`)  
+      axios.delete(`https://tour-advaisor-server.herokuapp.com/hotelBooking/delete/${id}/`)  
         .then(res => {  
           console.log(res);  
           console.log(res.data);  

@@ -17,7 +17,7 @@ const BologPost = () => {
         formData.append("comment",comment);
         formData.append("userName",user.displayName);
 
-        fetch("http://localhost:5000/blog", {
+        fetch("https://tour-advaisor-server.herokuapp.com/blog", {
       method: "POST",
       body: formData,
     })

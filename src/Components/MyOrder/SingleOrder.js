@@ -11,7 +11,7 @@ import { useState } from "react";
 const confirm = Modal.confirm;
 const SingleOrder = ({ booking, bookingLength }) => {
   const [status,setStatus] = useState({});
-  console.log("Booking Length", bookingLength);
+  console.log("Booking Length", booking.phone);
 
   function showDeleteConfirm(id) {
     confirm({
@@ -30,16 +30,16 @@ const SingleOrder = ({ booking, bookingLength }) => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:5000/bookingorder")
+    fetch("https://tour-advaisor-server.herokuapp.com/bookingorder")
       .then((res) => res.json())
       .then((data) => {
-        setStatus(data);
+        console.log(data.isPaid);
       });
   }, []);
 
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:5000/bookingorder/delete/${id}/`)
+      .delete(`https://tour-advaisor-server.herokuapp.com/bookingorder/delete/${id}/`)
       .then((res) => {
         console.log(res);
         console.log(res.data);
@@ -59,10 +59,11 @@ const SingleOrder = ({ booking, bookingLength }) => {
               From {booking.from} to {booking.placeName}
             </p>
           </Card.Text>
-            {
-              status.isPaid===true ?( <p>Paid </p>):
-              (<p>Pending</p>)
-            }
+          {
+            booking.isPaid? <p style={{color:"green"}}>Status: paid</p>:
+            <p style={{color:'red'}}>status: pending</p>
+          }
+            
           <NavLink to={`/singlePackge/${booking._id}`}>
             <Button>Details</Button>
           </NavLink>

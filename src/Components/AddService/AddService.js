@@ -51,7 +51,7 @@ const AddService = () => {
         formData.append('discription',discription)
         formData.append('price',price)
         formData.append('img',image)
-        fetch('http://localhost:5000/packege', {
+        fetch('https://tour-advaisor-server.herokuapp.com/packege', {
             method: 'POST',
             body: formData
           })

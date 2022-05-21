@@ -10,7 +10,7 @@ const SuperAdmin = () => {
     }
     const handleSuperAdmin=e=>{
         const user = { email };
-        fetch('http://localhost:5000/users/SuperAdmin', {
+        fetch('https://tour-advaisor-server.herokuapp.com/users/SuperAdmin', {
             method: 'PUT',
             headers: {
                'content-type':'application/json'

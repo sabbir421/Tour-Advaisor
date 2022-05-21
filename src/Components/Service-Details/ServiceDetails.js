@@ -41,7 +41,7 @@ const ServiceDetails = () => {
     data.isPaid = false
     console.log(data)
 
-    axios.post('http://localhost:5000/bookingorder',data)
+    axios.post('https://tour-advaisor-server.herokuapp.com/bookingorder',data)
     .then(res=>{
         if (res.data.insertedId){
           handleOpen()
@@ -58,7 +58,7 @@ const ServiceDetails = () => {
     // const sid = parseInt(id);
  
     useEffect(()=>{
-        fetch('http://localhost:5000/packege')
+        fetch('https://tour-advaisor-server.herokuapp.com/packege')
         .then(res=>res.json())
         .then(data=>{
             const info=data.find(dt=>dt._id===id)
