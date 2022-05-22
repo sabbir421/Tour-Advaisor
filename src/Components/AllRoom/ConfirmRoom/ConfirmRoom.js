@@ -44,7 +44,7 @@ const HotelModal = ({ openModal, handleCloseModal, room, hotelName }) => {
       isBooked:true
     };
     console.log("selectRoom", selectRoom);
-    fetch("http://localhost:4000/hotelBooking", {
+    fetch("http://localhost:5000/hotelBooking", {
       method: "POST",
       headers: {
         "content-type": "application/json",

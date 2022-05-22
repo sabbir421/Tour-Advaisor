@@ -58,7 +58,7 @@ const DetailSingleHotel = () => {
   }
 
   const { data } = await axios.put(
-    `https://tour-advaisor-server.herokuapp.com/booking-payment/${id}`,
+    `https://tour-advaisor-server.herokuapp.com/hotel-payment/${id}`,
       config
   )
   setPaymentSuccess(true)
@@ -115,10 +115,7 @@ const DetailSingleHotel = () => {
           </Grid>
 
           <Grid sx={{ mt: 2, p: 2 }} item md={4} sm={12} container>
-            {
-                booking.isPaid ? <Col>
-              <img className="img-fluid , borderRadius" style={{height:'300px', }} src={successImg} alt="" />
-            </Col>:
+            
            <Col>
            {!booking.isPaid && (
                 <ListGroup.Item>
@@ -141,7 +138,7 @@ const DetailSingleHotel = () => {
               )}
            </Col>
 
-            }
+            
           </Grid>
         </Grid>
       </Box>

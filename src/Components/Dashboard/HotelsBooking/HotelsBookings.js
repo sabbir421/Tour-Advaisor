@@ -9,10 +9,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import useAuth from '../../../Hooks/useAuth';
-import { Button } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { Modal, } from 'antd';
 import axios from 'axios';
+import DeleteIcon from '@mui/icons-material/Delete';
 const confirm = Modal.confirm;
 
 
@@ -43,30 +44,28 @@ const HotelsBookings = () => {
 
     function showDeleteConfirm(id) {
       confirm({
-        title: 'Are you sure delete Booking Order?',
-        content: 'Please Booking Another Tour',
-        okText: 'Yes',
-        okType: 'danger',
-        cancelText: 'No',
+        title: "Are you sure delete Booking Order?",
+        content: "Please Booking Another Tour",
+        okText: "Yes",
+        okType: "danger",
+        cancelText: "No",
         onOk() {
-          deletePost(id)
-          
+          deletePost(id);
         },
         onCancel() {
-          console.log('Cancel');
+          console.log("Cancel");
         },
       });
     }
 
-    const deletePost=(id)=> {
-      axios.delete(`https://tour-advaisor-server.herokuapp.com/hotelBooking/delete/${id}/`)  
-        .then(res => {  
-          console.log(res);  
-          console.log(res.data);  
-      
-        
-        })  
-      }
+    const deletePost = (id) => {
+      axios
+        .delete(`https://tour-advaisor-server.herokuapp.com/hotelBookings/delete/${id}/`)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        });
+    };
     return (
       <>
       
@@ -112,7 +111,10 @@ const HotelsBookings = () => {
                
                 
                 <Button variant='contained' style={{color:'blue',textDecoration:'none', marginRight:2,color:'white'}}>Details</Button></NavLink>
-             <Button onClick={()=>showDeleteConfirm(bookedHotels._id)}>Remove</Button>
+        <IconButton onClick={()=>showDeleteConfirm(row._id)} aria-label="delete" size="large">
+                <DeleteIcon fontSize="inherit" />
+      </IconButton>
+             {/* <Button varient='' onClick={()=>showDeleteConfirm(row._id)}>Remove</Button> */}
            
               
               </TableCell>
