@@ -28,7 +28,7 @@ const Services = () => {
   return (
     <Container id="services">
       <h1 className="d-flex justify-content-center text-primary my-3">
-        Packages
+       Tour Packages
       </h1>
       {loading ? (
         <div className="d-flex justify-content-center my-5">
