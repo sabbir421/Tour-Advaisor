@@ -7,7 +7,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { useParams } from "react-router-dom";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
-import successImg from '../../../img/Paymentsuccessful21.png'
+
 
 import axios from "axios";
 
